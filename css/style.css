@@ -1,0 +1,39 @@
+body {
+  background-color: #485EA7;
+  margin: 0; /* remove space around navbar */
+}
+
+.navbar {
+  background-color: #7F90DF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar li {
+  display: inline;
+  list-style: none;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar input {
+  border-radius: 10px;
+  margin-right: 1.5rem;
+  width: 15rem;
+  height: 1.5rem;
+}
