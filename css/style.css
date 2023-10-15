@@ -54,10 +54,17 @@ body {
 
 .navbar input {
   border-radius: 10px;
-  margin-right: 2rem;
   width: 15rem;
   height: 2rem;
   font-size: 1.15rem;
+}
+
+.navbar #search-btn {
+  height: 2rem;
+  width: 5rem;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: 2rem;
 }
 
 /* footer styles */
