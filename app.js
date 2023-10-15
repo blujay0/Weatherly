@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const currentYear = new Date().getFullYear();
   const cityInput = document.getElementById('city-input');
-  const locationEl = document.getElementsByClassName('location');
-  const temperatureEl = document.getElementsByClassName('temperature');
-  const weatherEl = document.getElementsByClassName('weather');
+  const searchBtn = document.getElementById('search-btn');
+  const weatherData = document.querySelector('weather-data');
+  // const locationEl = document.querySelector('location');
+  // const temperatureEl = document.querySelector('temperature');
+  // const weatherEl = document.querySelector('weather');
 
   // access the API key from the environment variable
   const apiKey = process.env.WEATHER_API_KEY;
@@ -25,10 +27,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // check if the user input is not empty
         if (city) {
-          // construct the API url with the user input
+          // construct the API url with the user's input
           const apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}`;
+
+          fetch(apiUrl)
+            .then(res => res.json())
+            .then(data => {
+              const location = data.location.name;
+              const weather = data.current.condition.text;
+              const temperature = data.current.temp_c;
+
+              const weatherHtml = `
+                <p>Location: ${location}</p>
+                <p>Weather: ${weather}</p>
+                <p>Temperature: ${temperature}°C</p>
+              `;
+
+              weatherData.innerHTML = weatherHtml;
+          })
+          .catch(error => {
+            console.error('Error fetching weather data:', error);
+            weatherData.innerHTML = '<p>City not found. Please try again.</p>';
+          });
+        } else {
+          alert('Please enter a city name.');
         }
       }
+
+      cityInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+          getWeather();
+        }
+      });
+
+      searchBtn.addEventListener('click', getWeather);
     })
   }
 
