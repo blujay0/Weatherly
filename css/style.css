@@ -13,6 +13,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 8em;
 }
 
 .navbar .logo {
@@ -21,6 +22,7 @@ body {
   font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 400;
   font-size: 2.5rem;
+  margin-left: 2rem;
 }
 
 .navbar a {
@@ -52,7 +54,7 @@ body {
 
 .navbar input {
   border-radius: 10px;
-  margin-right: 1.5rem;
+  margin-right: 2rem;
   width: 15rem;
   height: 2rem;
   font-size: 1.15rem;
