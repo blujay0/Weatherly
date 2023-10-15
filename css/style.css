@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
   background-color: #485EA7;
   margin: 0; /* remove space around navbar */
@@ -14,16 +16,27 @@ body {
 .navbar .logo {
   display: flex;
   align-items: center;
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
 }
 
 .navbar a {
   text-decoration: none;
   color: white;
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.navbar a:hover {
+  opacity: 0.75;
 }
 
 .navbar li {
   display: inline;
   list-style: none;
+  margin: 3rem;
 }
 
 .navbar li a {
@@ -31,9 +44,13 @@ body {
   color: white;
 }
 
+.navbar li a:hover {
+  text-decoration: underline;
+}
+
 .navbar input {
   border-radius: 10px;
   margin-right: 1.5rem;
   width: 15rem;
-  height: 1.5rem;
+  height: 2rem;
 }
