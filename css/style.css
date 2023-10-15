@@ -61,8 +61,38 @@ body {
 /* footer styles */
 footer {
   background-color: #7F90DF;
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.25rem;
+  color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
 }
 
 footer ul li {
   list-style: none;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+footer ul li:hover {
+  opacity: 0.75;
+}
+
+footer img {
+  border-radius: 15px;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 0;
 }
