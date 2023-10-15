@@ -1,10 +1,12 @@
+/* import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
   background-color: #485EA7;
-  margin: 0; /* remove space around navbar */
+  margin: 0; /* removes space around navbar */
 }
 
+/* navbar styles */
 .navbar {
   background-color: #7F90DF;
   display: flex;
@@ -54,4 +56,13 @@ body {
   width: 15rem;
   height: 2rem;
   font-size: 1.15rem;
+}
+
+/* footer styles */
+footer {
+  background-color: #7F90DF;
+}
+
+footer ul li {
+  list-style: none;
 }
