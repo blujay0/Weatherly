@@ -57,6 +57,10 @@ body {
   text-decoration: underline;
 }
 
+.navbar .search-bar {
+  display: flex;
+}
+
 .navbar input {
   background-color: transparent;
   border-radius: 10px;
@@ -66,6 +70,7 @@ body {
   width: 15rem;
   height: 2rem;
   font-size: 1.15rem;
+  margin-right: 0;
 }
 
 .navbar #search-btn {
@@ -75,7 +80,7 @@ body {
   width: 6rem;
   border-radius: 5px;
   padding: 0;
-  margin-left: 0.25rem;
+  margin-left: 0;
   margin-right: 2rem;
 }
 
