@@ -95,7 +95,7 @@ main {
   justify-content: center;
 }
 
-main .weather-data {
+.weather-card {
   position: relative;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
   color: #fff;

@@ -2,7 +2,7 @@ import { WEATHER_API_KEY } from './config/api-key.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentYear = new Date().getFullYear();
-  const cityInput = document.getElementById('city-input');
+  const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('search-btn');
   const weatherData = document.querySelector('.weather-data');
   // const locationEl = document.querySelector('location');
@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // function to fetch weather data and update HTML
 const getWeather = () => {
-  const city = cityInput.value.trim();
+  const search = searchInput.value.trim();
 
-  if (city) {
-    const apiUrl = `${apiEndpoint}?key=${apiKey}&q=${city}&days=1&aqi=yes&alert=yes`;
+  if (search) {
+    const apiUrl = `${apiEndpoint}?key=${apiKey}&q=${search}&days=1&aqi=yes&alert=yes`;
     console.log("API URL:", apiUrl);
 
     fetch(apiUrl)
@@ -53,30 +53,32 @@ const getWeather = () => {
         const humidity = data.current.humidity;
 
         const weatherHtml = `
-          <div class='row-1'>
-            <p class="location">${location}</p>
-            <div class="date-time">
-              <p class="time">${time}</p>
-              <p class="date">${date}</p>
+          <div class='weather-card'>
+            <div class='row-1'>
+              <p class="location">${location}</p>
+              <div class="date-time">
+                <p class="time">${time}</p>
+                <p class="date">${date}</p>
+              </div>
+            </div>
+
+            <div class='row-2'>
+              <p class="temp">${temperature} °C</p>
+              <img src="${weatherIcon}" alt="current weather symbol" class="weather-icon">
+            </div>
+            
+            <div class='row-3'>
+              <p class="weather">${weather} with ${humidity}% humidity</p>
             </div>
           </div>
-
-          <div class='row-2'>
-            <p class="temp">${temperature} °C</p>
-            <img src="${weatherIcon}" alt="current weather symbol" class="weather-icon">
-          </div>
-          
-          <div class='row-3'>
-            <p class="weather">${weather} with ${humidity}% humidity</p>
-          </div>
-        `;
-
+          `;
+  
         weatherData.innerHTML = weatherHtml;
       })
       .catch(error => {
         console.error('Error fetching weather data:', error);
         if (error.message === 'Network response was not ok') {
-          weatherData.innerHTML = '<p>City not found. Please try again.</p>';
+          weatherData.innerHTML = '<p>Location not found. Please try again.</p>';
         } else if (error.message.includes('Weather API error')) {
           weatherData.innerHTML = `<p>${error.message}</p>`;
         } else {
@@ -84,11 +86,11 @@ const getWeather = () => {
         }
       });
   } else {
-    alert('Please enter a city name.');
+    alert('Please enter a valid query.');
   }
 };
 
-  cityInput.addEventListener('keyup', (e) => {
+  searchInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       getWeather();
     }
