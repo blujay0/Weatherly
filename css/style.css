@@ -87,15 +87,53 @@ body {
 
 /* weather data */
 main .weather-data {
-  background-color: #1479E5;
+  position: relative;
+  background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
   color: #fff;
   border-radius: 10px;
   margin: 2rem 10rem;
   text-align: center;
+  width: 20em;
 }
 
 .weather-data p {
-  padding: 1rem;
+  padding: 0.25rem 0;
+}
+
+.row-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.row-1 .location {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-left: 2rem;
+}
+
+.row-1 .date-time {
+  font-size: 1.25rem;
+  margin-right: 2rem;
+}
+
+.row-1 .date-time p {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.row-2 .temp {
+  font-size: 2rem;
+}
+
+.row-2 .weather-icon {
+
 }
 
 /* footer styles */

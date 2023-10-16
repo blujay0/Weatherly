@@ -52,12 +52,20 @@ const getWeather = () => {
         const date = data.location.localtime.slice(0, 9);
 
         const weatherHtml = `
-          <p>Location: ${location}</p>
-          <p>Local Time: ${time}</p>
-          <p>Date: ${date}</p>
-          <img src="${weatherIcon}" alt="current weather symbol">
-          <p>Weather: ${weather}</p>
-          <p>Temperature: ${temperature} °C</p>
+          <div class='row-1'>
+            <p class="location">${location}</p>
+            <div class="date-time">
+              <p class="time">${time}</p>
+              <p class="date">${date}</p>
+            </div>
+          </div>
+
+          <div class='row-2'>
+            <p class="temp">${temperature} °C</p>
+            <img class="weather-icon" src="${weatherIcon}" alt="current weather symbol">
+          </div>
+          
+          <p class="weather">${weather}</p>
         `;
 
         weatherData.innerHTML = weatherHtml;
