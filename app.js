@@ -57,7 +57,7 @@ const getWeather = () => {
           <p>Date: ${date}</p>
           <img src="${weatherIcon}" alt="current weather symbol">
           <p>Weather: ${weather}</p>
-          <p>Temperature: ${temperature}°C</p>
+          <p>Temperature: ${temperature} °C</p>
         `;
 
         weatherData.innerHTML = weatherHtml;
