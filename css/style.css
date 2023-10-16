@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 html {
-  height: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 body {
@@ -103,6 +104,7 @@ body {
 main {
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 /* weather data */
@@ -179,12 +181,12 @@ footer {
   font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.25rem;
   color: white;
-  left: 0;
-  right: 0;
+  width: 100%;
   bottom: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   position: absolute;
 }
 
