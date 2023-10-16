@@ -1,4 +1,4 @@
-import { WEATHER_API_KEY } from 'config/api-key.js';
+import { WEATHER_API_KEY } from './config/api-key.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentYear = new Date().getFullYear();
