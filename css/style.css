@@ -58,18 +58,30 @@ body {
 }
 
 .navbar input {
+  background-color: transparent;
   border-radius: 10px;
+  border-color: transparent;
+  border-bottom-color: #fff;
+  color: #fff;
   width: 15rem;
   height: 2rem;
   font-size: 1.15rem;
 }
 
 .navbar #search-btn {
+  background-color: transparent;
+  border: none;
   height: 2rem;
   width: 6rem;
   border-radius: 5px;
+  padding: 0;
   margin-left: 0.25rem;
   margin-right: 2rem;
+}
+
+/* weather data */
+main .weather-data {
+  color: #fff;
 }
 
 /* footer styles */
