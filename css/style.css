@@ -301,6 +301,7 @@ footer p {
   /* navbar styles */
   .navbar {
     margin-top: 3rem;
+    margin-right: 2rem;
     align-items: center;
     justify-content: center;
   }
@@ -321,7 +322,7 @@ footer p {
   }
 
   .search-bar {
-    margin-left: 7rem;
+    margin-left: 10rem;
   }
 
   /* weather card */
