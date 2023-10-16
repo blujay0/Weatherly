@@ -46,6 +46,7 @@ const getWeather = () => {
 
         const location = data.location.name;
         const weather = data.current.condition.text;
+        const weatherIcon = data.current.condition.icon;
         const temperature = data.current.temp_c;
         const time = data.location.localtime.slice(-4);
         const date = data.location.localtime.slice(0, 9);
@@ -54,6 +55,7 @@ const getWeather = () => {
           <p>Location: ${location}</p>
           <p>Local Time: ${time}</p>
           <p>Date: ${date}</p>
+          <img src="${weatherIcon}" alt="current weather symbol">
           <p>Weather: ${weather}</p>
           <p>Temperature: ${temperature}°C</p>
         `;
