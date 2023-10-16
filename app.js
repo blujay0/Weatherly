@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentYear = new Date().getFullYear();
   const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('search-btn');
-  const weatherData = document.querySelector('.weather-data');
+  const currentData = document.querySelector('.current-data');
   // const locationEl = document.querySelector('location');
   // const temperatureEl = document.querySelector('temperature');
   // const weatherEl = document.querySelector('weather');
@@ -73,16 +73,16 @@ const getWeather = () => {
           </div>
           `;
   
-        weatherData.innerHTML = weatherHtml;
+        currentData.innerHTML = weatherHtml;
       })
       .catch(error => {
         console.error('Error fetching weather data:', error);
         if (error.message === 'Network response was not ok') {
-          weatherData.innerHTML = '<p>Location not found. Please try again.</p>';
+          currentData.innerHTML = '<p>⚠️ Location not found. Please try again!</p>';
         } else if (error.message.includes('Weather API error')) {
-          weatherData.innerHTML = `<p>${error.message}</p>`;
+          currentData.innerHTML = `<p>⚠️ ${error.message}</p>`;
         } else {
-          weatherData.innerHTML = '<p>An unknown error occurred. Please try again.</p>';
+          currentData.innerHTML = '<p>⚠️ An unknown error occurred. Please try again.</p>';
         }
       });
   } else {

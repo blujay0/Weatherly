@@ -74,6 +74,11 @@ body {
   margin-right: 0;
 }
 
+/* remove outline when input field is clicked */
+.navbar input:focus {
+  outline: none;
+}
+
 .navbar #search-btn {
   background-color: transparent;
   border: none;
@@ -106,8 +111,10 @@ main {
   height: 25em;
 }
 
-.weather-data p {
+.current-data p {
   padding: 0.25rem 0;
+  color: #ffbe32;
+  font-size: 4rem;
 }
 
 .row-1 {
