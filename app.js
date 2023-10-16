@@ -24,41 +24,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // for keeping the year updated in the footer
   document.getElementById("currentYear").innerHTML = currentYear;
 
-  // function to fetch weather data and update HTML
-  const getWeather = () => {
-    const city = cityInput.value.trim(); // Get the city input by the user and remove white space from the ends of the string
+// function to fetch weather data and update HTML
+const getWeather = () => {
+  const city = cityInput.value.trim();
 
-    // check if the user input is not empty
-    if (city) {
-      // construct the API URL with the user's input
-      const apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}`;
-      console.log("API URL:", apiUrl); // log API URL
+  if (city) {
+    const apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}`;
+    console.log("API URL:", apiUrl);
 
-      fetch(apiUrl)
-        .then(res => res.json())
-        .then(data => {
-          console.log("Weather Data:", data); // log the fetched weather data
+    fetch(apiUrl)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok'); // Handle HTTP error status
+        }
+        return res.json();
+      })
+      .then(data => {
+        if (data.error) {
+          throw new Error(`Weather API error: ${data.error.message}`); // Handle API-specific error
+        }
 
-          const location = data.location.name;
-          const weather = data.current.condition.text;
-          const temperature = data.current.temp_c;
+        const location = data.location.name;
+        const weather = data.current.condition.text;
+        const temperature = data.current.temp_c;
 
-          const weatherHtml = `
-            <p>Location: ${location}</p>
-            <p>Weather: ${weather}</p>
-            <p>Temperature: ${temperature}°C</p>
-          `;
+        const weatherHtml = `
+          <p>Location: ${location}</p>
+          <p>Weather: ${weather}</p>
+          <p>Temperature: ${temperature}°C</p>
+        `;
 
-          weatherData.innerHTML = weatherHtml;
-        })
-        .catch(error => {
-          console.error('Error fetching weather data:', error);
+        weatherData.innerHTML = weatherHtml;
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+        if (error.message === 'Network response was not ok') {
           weatherData.innerHTML = '<p>City not found. Please try again.</p>';
-        });
-    } else {
-      alert('Please enter a city name.');
-    }
-  };
+        } else if (error.message.includes('Weather API error')) {
+          weatherData.innerHTML = `<p>${error.message}</p>`;
+        } else {
+          weatherData.innerHTML = '<p>An unknown error occurred. Please try again.</p>';
+        }
+      });
+  } else {
+    alert('Please enter a city name.');
+  }
+};
 
   cityInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
