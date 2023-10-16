@@ -324,9 +324,7 @@ footer p {
   }
 
   /* footer styles */
-  footer {
-    position: relative;
-  }
+
 
   /* weather card */
   .weather-card {
@@ -334,7 +332,7 @@ footer p {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
   }
 
