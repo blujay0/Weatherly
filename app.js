@@ -78,15 +78,13 @@ const getWeather = () => {
       .catch(error => {
         console.error('Error fetching weather data:', error);
         if (error.message === 'Network response was not ok') {
-          currentData.innerHTML = '<p>⚠️ Location not found. Please try again!</p>';
+          currentData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
         } else if (error.message.includes('Weather API error')) {
-          currentData.innerHTML = `<p>⚠️ ${error.message}</p>`;
+          currentData.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
         } else {
-          currentData.innerHTML = '<p>⚠️ An unknown error occurred. Please try again.</p>';
+          currentData.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
         }
       });
-  } else {
-    alert('Please enter a valid query.');
   }
 };
 

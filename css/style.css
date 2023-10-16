@@ -94,12 +94,18 @@ body {
   cursor: pointer;
 }
 
-/* weather data */
+/* error message */
+.error-msg {
+  color: #ffb83d;
+  font-size: 4rem;
+}
+
 main {
   display: flex;
   justify-content: center;
 }
 
+/* weather data */
 .weather-card {
   position: relative;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
@@ -113,8 +119,6 @@ main {
 
 .current-data p {
   padding: 0.25rem 0;
-  color: #ffbe32;
-  font-size: 4rem;
 }
 
 .row-1 {
