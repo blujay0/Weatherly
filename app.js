@@ -50,7 +50,7 @@ const getWeather = () => {
         const temperatureC = data.current.temp_c;
         const temperatureF = data.current.temp_f;
         const time = data.location.localtime.slice(-4);
-        const date = data.location.localtime.slice(0, 9);
+        const date = data.location.localtime.slice(0, 10);
         const humidity = data.current.humidity;
 
         const weatherHtml = `
