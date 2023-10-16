@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiKey = WEATHER_API_KEY;
 
   // set the api endpoint to a var for simplicity
-  const apiEndpoint = "http://api.weatherapi.com/v1/current.json";
+  const apiEndpoint = "https://api.weatherapi.com/v1/current.json";
 
   // for keeping the year updated in the footer
   document.getElementById("currentYear").innerHTML = currentYear;
