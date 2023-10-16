@@ -29,7 +29,7 @@ const getWeather = () => {
   const city = cityInput.value.trim();
 
   if (city) {
-    const apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}`;
+    const apiUrl = `${apiEndpoint}?key=${apiKey}&q=${city}&days=1&aqi=yes&alert=yes`;
     console.log("API URL:", apiUrl);
 
     fetch(apiUrl)
@@ -47,9 +47,13 @@ const getWeather = () => {
         const location = data.location.name;
         const weather = data.current.condition.text;
         const temperature = data.current.temp_c;
+        const time = data.location.localtime.slice(-4);
+        const date = data.location.localtime.slice(0, 9);
 
         const weatherHtml = `
           <p>Location: ${location}</p>
+          <p>Local Time: ${time}</p>
+          <p>Date: ${date}</p>
           <p>Weather: ${weather}</p>
           <p>Temperature: ${temperature}°C</p>
         `;
