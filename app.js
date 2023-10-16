@@ -50,6 +50,7 @@ const getWeather = () => {
         const temperature = data.current.temp_c;
         const time = data.location.localtime.slice(-4);
         const date = data.location.localtime.slice(0, 9);
+        const humidity = data.current.humidity;
 
         const weatherHtml = `
           <div class='row-1'>
@@ -66,7 +67,7 @@ const getWeather = () => {
           </div>
           
           <div class='row-3'>
-            <p class="weather">${weather}</p>
+            <p class="weather">${weather} with ${humidity}% humidity</p>
           </div>
         `;
 
