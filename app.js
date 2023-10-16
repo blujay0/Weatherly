@@ -62,10 +62,12 @@ const getWeather = () => {
 
           <div class='row-2'>
             <p class="temp">${temperature} °C</p>
-            <img class="weather-icon" src="${weatherIcon}" alt="current weather symbol">
+            <img src="${weatherIcon}" alt="current weather symbol" class="weather-icon">
           </div>
           
-          <p class="weather">${weather}</p>
+          <div class='row-3'>
+            <p class="weather">${weather}</p>
+          </div>
         `;
 
         weatherData.innerHTML = weatherHtml;
