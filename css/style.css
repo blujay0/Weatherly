@@ -179,6 +179,36 @@ footer p {
   }
 }
 
+/* landing page */
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1, h2 {
+  color: white;
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+  /* margin-top: 30vh; */
+}
+
+h2 {
+  font-size: 3rem;
+  margin-top: 30vh;
+}
+
 /* current weather page */
 .weather-card {
   position: relative;
@@ -322,6 +352,12 @@ footer p {
 
   .navbar a {
     margin-top: 2rem;
+  }
+
+  #background-video { display: none; }
+  body {
+    background: url(media/landing-poster.png) no-repeat;
+    background-size: cover;
   }
 }
 
