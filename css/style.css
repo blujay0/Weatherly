@@ -6,9 +6,9 @@ html {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
-  position: relative;
+  position: absolute;
 }
 
 .logo img {
@@ -162,7 +162,8 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  position: absolute;
+  position: relative;
+
 }
 
 footer ul {
