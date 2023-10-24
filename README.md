@@ -40,6 +40,7 @@ Weatherly is a web application that integrates the Weather API. It provides up-t
 * Netlify Deployment
 
 ## Resources & Acknowledgements
+* [Weather API](https://www.weatherapi.com/)
 * [Abdullah Al Faysal](https://www.vecteezy.com/video/31393582-the-skye-blue-time-lapse-at-countryside
 )
 * [Prasong Takham](https://www.vecteezy.com/photo/6893351-beautiful-sunset-sky-abstract-background)
