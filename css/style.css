@@ -180,6 +180,11 @@ footer p {
 }
 
 /* landing page */
+#landing-page {
+  margin-top: 0;
+  display: flex;
+}
+
 #background-video {
   width: 100vw;
   height: 100vh;
@@ -192,21 +197,19 @@ footer p {
   z-index: -1;
 }
 
-h1, h2 {
+#landing-text h1, h2 {
   color: white;
   font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 700;
   text-align: center;
 }
 
-h1 {
+#landing-text h1 {
   font-size: 6rem;
-  /* margin-top: 30vh; */
 }
 
-h2 {
+#landing-text h2 {
   font-size: 3rem;
-  margin-top: 30vh;
 }
 
 /* current weather page */
@@ -324,6 +327,16 @@ h2 {
 
   .search-bar {
     margin-left: 7rem;
+  }
+}
+
+@media screen and (max-width: 1059px) {
+  #landing-page h1 {
+    font-size: 5rem;
+  }
+  
+  #landing-page h2 {
+    font-size: 2rem;
   }
 }
 
