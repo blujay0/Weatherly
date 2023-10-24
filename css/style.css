@@ -256,10 +256,23 @@ footer p {
   justify-content: space-between;
 }
 
+.row-1 #current-location {
+  display: flex;
+  align-items: baseline;
+}
+
+.row-1 img {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 0;
+  margin-left: 2rem;
+}
+
 .row-1 .location {
   font-size: 3rem;
   margin-top: 3rem;
-  margin-left: 2rem;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .row-1 .date-time {
@@ -461,6 +474,11 @@ footer p {
     flex-direction: column;
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .weather-card .row-1 #current-location img {
+    width: 2rem;
+    height: 2rem;
   }
 
   .weather-card .location {

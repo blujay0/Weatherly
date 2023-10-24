@@ -48,7 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const weatherHtml = `
             <div class='weather-card'>
               <div class='row-1'>
-                <p class="location">${location}</p>
+
+                <div id="current-location">
+                  <img src="css/media/location-marker-white-cropped.svg">
+                  <p class="location">${location}</p>
+                </div>
+
                 <div class="date-time">
                   <p class="time">${time}</p>
                   <p class="date">${date}</p>
