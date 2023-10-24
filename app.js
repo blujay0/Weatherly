@@ -5,95 +5,134 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('search-btn');
   const currentData = document.querySelector('.current-data');
-  // const locationEl = document.querySelector('location');
-  // const temperatureEl = document.querySelector('temperature');
-  // const weatherEl = document.querySelector('weather');
+  const todayForecastContainer = document.querySelector('.today-data'); // Container for today's forecast
 
-  // import .env library (for use with a server)
-  // require('dotenv').config()
-
-  // access the API key from the environment variable (for use with a server)
-  // const apiKey = process.env.WEATHER_API_KEY;
-
-  // access the API key
+  // Access the API key
   const apiKey = WEATHER_API_KEY;
 
-  // set the api endpoint to a var for simplicity
-  const apiEndpoint = "https://api.weatherapi.com/v1/current.json";
+  // API endpoint for current weather data
+  const currentApiEndpoint = "https://api.weatherapi.com/v1/current.json";
 
-  // for keeping the year updated in the footer
+  // API endpoint for daily forecast data
+  const todayApiEndpoint = "https://api.weatherapi.com/v1/forecast.json";
+
+  // For keeping the year updated in the footer
   document.getElementById("currentYear").innerHTML = currentYear;
 
-// function to fetch weather data and update HTML
-const getWeather = () => {
-  const search = searchInput.value.trim();
+  // Function to fetch current weather data and update HTML for current.html
+  const getCurrentWeather = () => {
+    const search = searchInput.value.trim();
 
-  if (search) {
-    const apiUrl = `${apiEndpoint}?key=${apiKey}&q=${search}&days=1&aqi=yes&alert=yes`;
-    console.log("API URL:", apiUrl);
+    if (search) {
+      const apiUrl = `${currentApiEndpoint}?key=${apiKey}&q=${search}&aqi=yes&alert=yes`;
 
-    fetch(apiUrl)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Network response was not ok'); // Handle HTTP error status
-        }
-        return res.json();
-      })
-      .then(data => {
-        if (data.error) {
-          throw new Error(`Weather API error: ${data.error.message}`); // Handle API-specific error
-        }
+      fetch(apiUrl)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok'); // Handle HTTP error status
+          }
+          return res.json();
+        })
+        .then(data => {
+          // Handle current weather data for current.html
+          const location = data.location.name;
+          const weather = data.current.condition.text;
+          const weatherIcon = data.current.condition.icon;
+          const temperatureC = data.current.temp_c;
+          const temperatureF = data.current.temp_f;
+          const time = data.location.localtime.slice(-4);
+          const date = data.location.localtime.slice(0, 10);
+          const humidity = data.current.humidity;
 
-        const location = data.location.name;
-        const weather = data.current.condition.text;
-        const weatherIcon = data.current.condition.icon;
-        const temperatureC = data.current.temp_c;
-        const temperatureF = data.current.temp_f;
-        const time = data.location.localtime.slice(-4);
-        const date = data.location.localtime.slice(0, 10);
-        const humidity = data.current.humidity;
+          const weatherHtml = `
+            <div class='weather-card'>
+              <div class='row-1'>
+                <p class="location">${location}</p>
+                <div class="date-time">
+                  <p class="time">${time}</p>
+                  <p class="date">${date}</p>
+                </div>
+              </div>
 
-        const weatherHtml = `
-          <div class='weather-card'>
-            <div class='row-1'>
-              <p class="location">${location}</p>
-              <div class="date-time">
-                <p class="time">${time}</p>
-                <p class="date">${date}</p>
+              <div class='row-2'>
+                <p class="temp">${temperatureC} °C | ${temperatureF} °F</p>
+                <img src="${weatherIcon}" alt="current weather symbol" class="weather-icon">
+              </div>
+              
+              <div class='row-3'>
+                <p class "weather">${weather} with ${humidity}% humidity</p>
               </div>
             </div>
-
-            <div class='row-2'>
-              <p class="temp">${temperatureC} °C | ${temperatureF} °F</p>
-              <img src="${weatherIcon}" alt="current weather symbol" class="weather-icon">
-            </div>
-            
-            <div class='row-3'>
-              <p class="weather">${weather} with ${humidity}% humidity</p>
-            </div>
-          </div>
           `;
-  
-        currentData.innerHTML = weatherHtml;
-      })
-      .catch(error => {
-        console.error('Error fetching weather data:', error);
-        if (error.message === 'Network response was not ok') {
-          currentData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
-        } else if (error.message.includes('Weather API error')) {
-          currentData.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
-        } else {
-          currentData.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
-        }
-      });
-  }
-};
+
+          currentData.innerHTML = weatherHtml;
+        })
+        .catch(error => {
+          // Handle errors for current.html
+          if (error.message === 'Network response was not ok') {
+            currentData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
+          } else if (error.message.includes('Weather API error')) {
+            currentData.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
+          } else {
+            currentData.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
+          }
+        });
+    }
+  };
+
+  // Function to fetch daily forecast data and update HTML for today.html
+  const getDailyForecast = () => {
+    const search = searchInput.value.trim();
+
+    if (search) {
+      const apiUrl = `${todayApiEndpoint}?key=${apiKey}&q=${search}&days=1&aqi=yes&alerts=yes`;
+
+      fetch(apiUrl)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok'); // Handle HTTP error status
+          }
+          return res.json();
+        })
+        .then(data => {
+          // Handle daily forecast data for today.html
+          const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
+          todayData.forEach(hour => {
+            const time = hour.time.slice(-5);
+            const temperatureC = hour.temp_c;
+            const temperatureF = hour.temp_f;
+            const condition = hour.condition.text;
+            const weatherIcon = hour.condition.icon;
+
+            // Create an HTML element for each hour's data and append it to the container
+            const todayHtml = `
+              <div class="hourly-card">
+                <p class="hour">${time}</p>
+                <img src="${weatherIcon}" alt="hourly weather symbol" class="hourly-icon">
+                <p class="temp">${temperatureC} °C | ${temperatureF} °F </p>
+                <p class="weather">${condition}</p>
+              </div>
+            `;
+
+            todayForecastContainer.insertAdjacentHTML('beforeend', todayHtml);
+          });
+        })
+        .catch(error => {
+          // Handle errors for today.html
+          // ...
+        });
+    }
+  };
 
   searchInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
-      getWeather();
+      getCurrentWeather(); // For current.html
+      getDailyForecast(); // For today.html
     }
   });
 
-  searchBtn.addEventListener('click', getWeather);
+  searchBtn.addEventListener('click', () => {
+    getCurrentWeather(); // For current.html
+    getDailyForecast(); // For today.html
+  });
 });
