@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Handle daily forecast data for today.html
           const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
           todayData.forEach(hour => {
-            const time = hour.time;
+            const time = hour.time.slice(-5);
             const temperatureC = hour.temp_c;
             const temperatureF = hour.temp_f;
             const condition = hour.condition.text;
