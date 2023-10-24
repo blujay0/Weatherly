@@ -4,9 +4,8 @@
 html {
   height: 100%;
   width: 100%;
-  margin: 0px;
-  padding: 0px;
-  /* overflow-y: hidden; */
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   position: absolute;
 }
@@ -157,13 +156,14 @@ footer {
   font-size: 1.25rem;
   color: white;
   width: 100%;
+  left: 0;
+  right: 0;
   bottom: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
-
 }
 
 footer ul {
@@ -252,7 +252,7 @@ footer p {
   /* border-style: solid; */
   /* border-width: .05rem; */
   border-radius: 15px;
-  margin: 2rem 10rem;
+  margin: 0;
   text-align: center;
   width: 30em;
   height: 25em;
@@ -502,8 +502,6 @@ footer p {
     width: 20rem;
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
   }
 
   .weather-card .row-1 #current-location img {
