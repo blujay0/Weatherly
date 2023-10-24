@@ -164,6 +164,20 @@ footer p {
   margin-top: 0;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
 /* current weather page */
 .weather-card {
   position: relative;
@@ -224,20 +238,6 @@ footer p {
   animation: pulse 3s infinite;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(0.95);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(0.95);
-  }
-}
-
 .row-3 {
   padding: 0;
   font-size: 1.5rem;
@@ -250,6 +250,24 @@ footer p {
 }
 
 /* today's forecast page */
+.hourly-card {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-width: .05rem;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 0.5rem;
+}
+
+.hourly-card p {
+  padding: 0.25rem;
+}
+
+.hourly-icon {
+  transform: scale(1);
+  animation: pulse 3s infinite;
+}
 
 
 /* responsive design */
