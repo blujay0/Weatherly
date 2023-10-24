@@ -7,7 +7,8 @@
   <link rel="icon" type="image/x-icon" href="css/media/sun-white-50.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<body style="overflow: auto;">
   <header>
     <nav class="navbar">
       <a href="index.html" class="logo"><img src="css/media/sun-white-50.svg" alt="the sun">Weatherly</a>
@@ -28,9 +29,11 @@
   </header>
 
   <main id="today-main">
-    <img src="css/media/background.jpg" alt="the deep blue sky with clouds" class="background">
-    <h1 id="today-h1">Today's Forecast</h1>
-    <section class="today-data"></section>
+    <div class="content-container">
+      <img src="css/media/background.jpg" alt="the deep blue sky with clouds" class="background">
+      <h1 id="today-h1">Today's Forecast</h1>
+      <section class="today-data"></section>
+    </div>
   </main>
 
   <footer>
