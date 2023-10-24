@@ -365,6 +365,12 @@ footer p {
   border-radius: 15px;
   height: 8rem;
   margin: 15px 10px;
+  transition: transform .5s; /* only necessary for animation */
+}
+
+.hourly-card:hover {
+  cursor: pointer;
+  transform: scale(1.15);
 }
 
 .hourly-card p {
@@ -423,6 +429,18 @@ footer p {
   footer {
     display: flex;
     flex-direction: column;
+  }
+
+  .hourly-card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .hourly-card:hover {
+    cursor: pointer;
+    transform: scale(1.03);
   }
 }
 
@@ -505,11 +523,16 @@ footer p {
 
   @media screen and (max-width: 500px) {
     .hourly-card {
-      height: 7rem;
+      height: 5rem;
+    }
+
+    .hourly-card:hover {
+      cursor: pointer;
+      transform: scale(1.05);
     }
 
     .hourly-card p {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
 
     .hourly-icon {
