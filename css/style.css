@@ -121,9 +121,50 @@ main {
   display: flex;
   justify-content: center;
   color: white;
+  margin-top: 5rem;
+  margin-bottom: 12rem;
 }
 
-/* weather data */
+/* footer styles */
+footer {
+  /* background-color: #00377E; */
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.25rem;
+  color: white;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  list-style: none;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+footer ul li:hover {
+  opacity: 0.75;
+}
+
+footer img {
+  border-radius: 15px;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* current weather page */
 .weather-card {
   position: relative;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
@@ -133,11 +174,6 @@ main {
   text-align: center;
   width: 30em;
   height: 25em;
-}
-
-main {
-  margin-top: 5rem;
-  margin-bottom: 12rem;
 }
 
 .current-data p {
@@ -213,45 +249,10 @@ main {
   padding: 0;
 }
 
-/* footer styles */
-footer {
-  /* background-color: #00377E; */
-  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 1.25rem;
-  color: white;
-  width: 100%;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  position: absolute;
-}
+/* today's forecast page */
 
-footer ul {
-  display: flex;
-  justify-content: center;
-}
 
-footer ul li {
-  list-style: none;
-  justify-content: space-between;
-  margin: 0 1rem;
-}
-
-footer ul li:hover {
-  opacity: 0.75;
-}
-
-footer img {
-  border-radius: 15px;
-}
-
-footer p {
-  text-align: center;
-  margin-top: 0;
-}
-
+/* responsive design */
 @media screen and (max-width: 1227px) {
   /* navbar styles */
   .navbar {
