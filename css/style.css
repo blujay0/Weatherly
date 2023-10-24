@@ -505,11 +505,11 @@ footer p {
 
   @media screen and (max-width: 500px) {
     .hourly-card {
-      height: 7rem;
+      height: 5rem;
     }
 
     .hourly-card p {
-      font-size: 1.5rem;
+      font-size: .8rem;
     }
 
     .hourly-icon {
