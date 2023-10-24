@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBtn = document.getElementById('search-btn');
   const currentWeatherContainer = document.querySelector('.current-data');
   const todayForecastContainer = document.querySelector('.today-data'); // Container for today's forecast
+  const todayLocation = document.querySelector('.today-h2');
 
   // Access the API key
   const apiKey = WEATHER_API_KEY;
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // For keeping the year updated in the footer
   document.getElementById("currentYear").innerHTML = currentYear;
 
-  // Function to fetch current weather data and update HTML for current.html
+  // fetch current weather data and update HTML for current.html
   const getCurrentWeather = () => {
     const search = searchInput.value.trim();
 
@@ -97,6 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           // Handle daily forecast data for today.html
           const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
+          const location = data.location.name;
+          todayLocation.innerHTML = `
+            <img src="css/media/location-marker.svg"> 
+            <p>${location}</p>
+          `; // Updates the location in the <h2> element
+
           todayData.forEach(hour => {
             const time = hour.time.slice(-5);
             const temperatureC = hour.temp_c;
