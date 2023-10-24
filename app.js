@@ -111,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `; // Updates the location in the <h2> element
 
+          // clear previous data before appending new data
+          todayForecastContainer.innerHTML= '';
+
           todayData.forEach(hour => {
             const time = hour.time.slice(-5);
             const temperatureC = hour.temp_c;
