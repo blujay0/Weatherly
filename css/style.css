@@ -255,19 +255,21 @@ footer p {
 .hourly-card {
   display: flex;
   justify-content: center;
+  align-items: center;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
   border-style: solid;
   border-width: .05rem;
   border-radius: 15px;
   margin: 10px;
-  padding: 0.5rem;
 }
 
 .hourly-card p {
   padding: 0.25rem;
+  font-size: 2rem;
 }
 
 .hourly-icon {
+  width: 10rem;
   transform: scale(1);
   animation: pulse 3s infinite;
 }

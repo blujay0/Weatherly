@@ -119,7 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
           // Handle errors for today.html
-          // ...
+          console.error('Error fetching daily weather data:', error);
+          const todayData = document.querySelector('.today-data');
+          if (error.message === 'Network response was not ok') {
+            todayData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
+          } else if (error.message.includes('Weather API error')) {
+            todayData.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
+          } else {
+            todayData.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
+          }
         });
     }
   };
