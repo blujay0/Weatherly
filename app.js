@@ -30,7 +30,7 @@ const getWeather = () => {
 
   if (search) {
     const apiUrl = `${apiEndpoint}?key=${apiKey}&q=${search}&days=1&aqi=yes&alert=yes`;
-    console.log("API URL:", apiUrl);
+    // console.log("API URL:", apiUrl);
 
     fetch(apiUrl)
       .then(res => {
@@ -75,6 +75,31 @@ const getWeather = () => {
           `;
   
         currentData.innerHTML = weatherHtml;
+
+        // fetch today data
+        const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
+        const todayForecastContainer = document.querySelector('.today-data');
+
+        todayData.forEach(hour => {
+          const time = hour.time;
+          const temperatureC = hour.temp_c;
+          const temperatureF = hour.temp_f;
+          const condition = hour.condition.text;
+          const weatherIcon = hour.condition.icon;
+
+          // create a HTML element for each hour's data
+          const hourly HTML = `
+            <div class="hourly-card">
+              <p class="hour">${time}</p>
+              <p class="temp">${temperatureC} °C | ${temperatureF} °F</p>
+              <p class="weather">${condition}</p>
+              <img src="${weatherIcon}" alt="hourly weather symbol" class="hourly-icon">
+            </div>
+          `;
+
+          // append hourly data to the container
+          todayForecastContainer.insertAdjacentHTML('beforeend', hourlyHtml);
+        });
       })
       .catch(error => {
         console.error('Error fetching weather data:', error);
