@@ -100,8 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
           const location = data.location.name;
           todayLocation.innerHTML = `
-            <img src="css/media/location-marker.svg"> 
-            <p>${location}</p>
+            <div id="today-location">
+              <img src="css/media/location-marker-white-cropped.svg">
+              <p>${location}</p>
+            </div>
           `; // Updates the location in the <h2> element
 
           todayData.forEach(hour => {
