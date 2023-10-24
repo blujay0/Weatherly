@@ -78,6 +78,12 @@ body {
   margin-right: 2rem;
 }
 
+/* change placeholder color */
+::placeholder {
+  color:#DDB68C;
+  opacity: 1; /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this */
+}
+
 .navbar input {
   background-color: transparent;
   border-radius: 10px;
