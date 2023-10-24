@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // Handle daily forecast data for today.html
           const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
           const location = data.location.name;
+          todayLocation.innerHTML = '';
+
           todayLocation.innerHTML = `
             <div id="today-location">
               <img src="css/media/location-marker-white-cropped.svg">
@@ -138,6 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
           // Handle errors for today.html
           console.error('Error fetching daily weather data:', error);
           const todayData = document.querySelector('.today-data');
+
+          // clear location element
+          todayLocation.innerHTML = '';
+          
           if (error.message === 'Network response was not ok') {
             todayData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
           } else if (error.message.includes('Weather API error')) {
