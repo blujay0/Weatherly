@@ -435,6 +435,7 @@ footer p {
   footer {
     display: flex;
     flex-direction: column;
+    bottom: 0;
   }
 
   .hourly-card:hover {
