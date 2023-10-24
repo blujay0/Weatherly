@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="hourly-card">
                 <p class="hour">${time}</p>
                 <img src="${weatherIcon}" alt="hourly weather symbol" class="hourly-icon">
-                <p class="temp">${temperatureC} °C | ${temperatureF} °F </p>
                 <p class="weather">${condition}</p>
+                <p class="temp">${temperatureC} °C | ${temperatureF} °F </p>
               </div>
             `;
 

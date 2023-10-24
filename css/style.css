@@ -183,8 +183,8 @@ footer p {
   position: relative;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
   color: #fff;
-  border-style: solid;
-  border-width: .05rem;
+  /* border-style: solid; */
+  /* border-width: .05rem; */
   border-radius: 15px;
   margin: 2rem 10rem;
   text-align: center;
@@ -257,21 +257,23 @@ footer p {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
-  border-style: solid;
-  border-width: .05rem;
+  /* border-style: solid; */
+  /* border-width: .05rem; */
   border-radius: 15px;
-  margin: 10px;
+  margin: 15px 10px;
 }
 
 .hourly-card p {
   padding: 0.25rem;
   font-size: 2rem;
+  padding: 1rem;
 }
 
 .hourly-icon {
   width: 10rem;
   transform: scale(1);
   animation: pulse 3s infinite;
+  padding: 0;
 }
 
 
@@ -373,5 +375,19 @@ footer p {
 
   .row-3 {
     font-size: 1rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    .hourly-card {
+      height: 7rem;
+    }
+
+    .hourly-card p {
+      font-size: 1.5rem;
+    }
+
+    .hourly-icon {
+      width: 5rem;
+    }
   }
 }
