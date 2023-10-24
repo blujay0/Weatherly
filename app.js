@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentYear = new Date().getFullYear();
   const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('search-btn');
-  const currentData = document.querySelector('.current-data');
+  const currentWeatherContainer = document.querySelector('.current-data');
   const todayForecastContainer = document.querySelector('.today-data'); // Container for today's forecast
 
   // Access the API key
@@ -65,16 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `;
 
-          currentData.innerHTML = weatherHtml;
+          currentWeatherContainer.innerHTML = weatherHtml;
         })
         .catch(error => {
           // Handle errors for current.html
           if (error.message === 'Network response was not ok') {
-            currentData.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
+            currentWeatherContainer.innerHTML = '<p class="error-msg">⚠️ Location not found. Please try again!</p>';
           } else if (error.message.includes('Weather API error')) {
-            currentData.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
+            currentWeatherContainer.innerHTML = `<p class="error-msg">⚠️ ${error.message}</p>`;
           } else {
-            currentData.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
+            currentWeatherContainer.innerHTML = '<p class="error-msg">⚠️ An unknown error occurred. Please try again!</p>';
           }
         });
     }
