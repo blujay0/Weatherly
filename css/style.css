@@ -133,8 +133,8 @@ main {
   justify-content: center;
   align-items: center;
   color: white;
-  margin-top: 1.9rem;
-  margin-bottom: 25rem;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
 }
 
 .background {
@@ -156,6 +156,7 @@ footer {
   font-size: 1.25rem;
   color: white;
   width: 100%;
+  margin-top: 10rem;
   left: 0;
   right: 0;
   bottom: 0;
@@ -258,6 +259,10 @@ footer p {
   height: 25em;
 }
 
+.current-data {
+  margin-bottom: 15rem;
+}
+
 .current-data p {
   padding: 0.25rem 0;
 }
@@ -331,6 +336,10 @@ footer p {
 }
 
 /* today's forecast page */
+.today-data {
+  margin-bottom: 10rem;
+}
+
 #today-h1 {
   font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 700;
