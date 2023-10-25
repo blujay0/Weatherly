@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentWeatherContainer = document.querySelector('.current-data');
   const todayForecastContainer = document.querySelector('.today-data'); // Container for today's forecast
   const todayLocation = document.querySelector('.today-h2');
+  const weekLocation = document.querySelector('.week-h2');
   const weekForecastContainer = document.querySelector('.week-data');
 
   // Access the API key
@@ -157,10 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to fetch week forecast data and update HTML for week.html
   const getWeekForecast = () => {
     const search = searchInput.value.trim();
-
+  
     if (search) {
       const apiUrl = `${weekApiEndpoint}?key=${apiKey}&q=${search}&days=7&aqi=yes&alert=yes`;
-
+  
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -171,7 +172,18 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((data) => {
           const forecastDays = data.forecast.forecastday;
           weekForecastContainer.innerHTML = ''; // clear previous data
-
+  
+          const location = data.location.name;
+  
+          // Create an image element for the location marker
+          const locationMarker = document.createElement('img');
+          locationMarker.src = 'css/media/location-marker-white-cropped.svg'; // Set the source path
+          locationMarker.alt = 'location marker';
+  
+          // Update the location in the <h2> element and add the image
+          weekLocation.textContent = location;
+          weekLocation.prepend(locationMarker);
+  
           forecastDays.forEach((dayData) => {
             const date = dayData.date;
             const maxTempC = dayData.day.maxtemp_c;
@@ -180,11 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const minTempF = dayData.day.mintemp_f;
             const condition = dayData.day.condition.text;
             const weatherIcon = dayData.day.condition.icon;
-
-            // create a card for each day
+          
+            // Create a card for each day
             const card = document.createElement('div');
             card.classList.add('weekly-card');
-
+          
             const weekHtml = `
               <div class="day-forecast">
                 <p class="date">${date}</p>
@@ -193,9 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="condition">${condition}</p>
               </div>
             `;
-
+          
             card.innerHTML = weekHtml;
-
+          
             weekForecastContainer.appendChild(card);
           });
         })
@@ -206,7 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             weekForecastContainer.innerHTML = '<p class="error-msg">An unknown error occurred. Please try again!</p>';
           }
+  
+          // Clear the location and image if there's an error
+          weekLocation.textContent = '';
         });
+    } else {
+      // Clear the location and image if the input is empty
+      weekLocation.textContent = '';
+      weekForecastContainer.innerHTML = '';
     }
   };
 
