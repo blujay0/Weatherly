@@ -401,8 +401,74 @@ footer p {
   padding: 0;
 }
 
+/* weekly forecast page */
+.week-data {
+  margin-bottom: 10rem;
+}
+
+#week-h1 {
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.week-h2 {
+  font-family: Mali, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#week-location {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#week-location img {
+  width: 2.25rem;
+  height: 2.5rem;
+}
+
+#week-location p {
+  margin: 0;
+  padding: 0;
+}
+
+.week-data {
+  display: flex;
+}
+
+.week-forecast {
+  border-radius: 15px;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  background: linear-gradient(135deg, rgb(0, 82, 169) 6%, rgb(1, 88, 180) 23%, rgb(1, 100, 206) 44%, rgb(40, 139, 244) 71%);
+}
+
+.week-forecast p {
+  font-size: 1.2rem;
+}
+
+.week-h2 img {
+  width: 2.25rem;
+  height: 2.5rem;
+}
 
 /* responsive design */
+@media screen and (max-width: 1360px) {
+  .week-forecast p {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .week-forecast p {
+    font-size: 1rem;
+  }  
+}
+
 @media screen and (max-width: 1227px) {
   /* navbar styles */
   .navbar {
@@ -420,6 +486,18 @@ footer p {
   }
 }
 
+@media screen and (max-width: 1133px) {
+  .week-forecast p {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  .week-forecast p {
+    font-size: 0.9rem;
+  }
+}
+
 @media screen and (max-width: 1059px) {
   #landing-page h1 {
     font-size: 5rem;
@@ -427,6 +505,27 @@ footer p {
   
   #landing-page h2 {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1037px) {
+  .week-data {
+    flex-direction: column;
+  }
+
+  .week-forecast {
+    height: 75%;
+    width: 25em;
+  }
+
+  .week-forecast img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .week-forecast p {
+    font-size: 2rem;
+    padding: 0 1rem;
   }
 }
 
@@ -550,6 +649,21 @@ footer p {
 
     .hourly-icon {
       width: 5rem;
+    }
+
+    .week-forecast {
+      height: 50%;
+      width: 10em;
+    }
+  
+    .week-forecast img {
+      height: 5rem;
+      width: 5rem;
+    }
+  
+    .week-forecast p {
+      font-size: 1rem;
+      padding: 0 1rem;
     }
   }
 }
