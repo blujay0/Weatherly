@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weatherly</title>
+  <link rel="icon" type="image/x-icon" href="css/media/sun-white-50.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo"><img src="css/media/sun-white-50.svg" alt="the sun">Weatherly</a>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="current.html">Current</a></li>
+        <li><a href="week.html">This Week</a></li>
+      </ul>
+
+      <div class="search-bar">
+        <input type="text" placeholder="city, state, zip code, country" id="search-input" autofocus>
+        <button id="search-btn">
+          <img src="css/media/search-white-38-cropped.svg" alt="magnifying glass">
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="current-main">
+    <img src="css/media/background.jpg" alt="the deep blue sky with clouds" class="background">
+    <h1 id="current-h1">Weekly Forecast</h1>
+    <section class="week-data"></section>
+  </main>
+
+  <footer>
+    <ul class="social-list">
+      <li class="social-list__item">
+        <a href="mailto:jay.lim.501@gmail.com" class="social-list__link" target="_blank">
+          <img src="css/media/email-white-48.png" alt="envelope">
+        </a>
+      </li>
+
+      <li class="social-list__item">
+        <a href="https://www.linkedin.com/in/jay-y-lim" class="social-list__link" target="_blank">
+          <img src="css/media/linkedin-white-48.svg" alt="linkedin logo">  
+        </a>
+      </li>
+
+      <li class="social-list__item">
+        <a href="https://github.com/blujay0" class="social-list__link" target="_blank">
+          <img src="css/media/github-white-48.svg" alt="github logo">
+        </a>
+      </li>
+
+      <li class="social-list__item">
+        <a href="https://dev.to/blujay0" class="social-list__link" target="_blank">
+          <img src="css/media/dev-white-48.svg" alt="dev.to logo">
+        </a>
+      </li>
+    </ul>
+
+    <div class="copyright">
+      <p>Created by Jay Lim</p>
+      <p>&copy; 2023 - <strong id="currentYear"></strong> All rights reserved.</p>
+    </div>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

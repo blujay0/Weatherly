@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
           // Handle daily forecast data for today.html
-          const todayData = data.forecast.forecastday[0].hour; // Assuming you want the hourly data for the first day
+          const todayData = data.forecast.forecastday[0].hour; // access the hourly data for the day
           const location = data.location.name;
           todayLocation.innerHTML = `
             <div id="today-location">
@@ -148,6 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
   };
+
+  // Function to fetch daily forecast data and update HTML for today.html
+  const getWeeklyForecast = () => {
+    const search = searchInput.value.trim();
+
+    if (search) {
+      const apiUrl = `${todayApiEndpoint}?key=${apiKey}&q=${search}&days=7&aqi=yes&alerts=yes`;
+
+    fetch(apiUrl)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok'); // Handle HTTP error status
+      }
+      return res.json();
+    })
+    .then(data => {
+
+    }
 
   searchInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
