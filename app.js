@@ -198,10 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add('weekly-card');
           
             const weekHtml = `
-              <div class="day-forecast">
-                <p class="date">${date}</p>
-                <p class="max-temp">${maxTempC}°C | ${maxTempF}°F</p>
+              <div class="week-forecast">
                 <img src="${weatherIcon}" alt="weather symbol" class="weather-icon">
+                <p class="date">${date}</p>
+                <p class="max-temp">Highs ${maxTempC}°C | ${maxTempF}°F</p>
+                <p class="min-temp">Lows ${minTempC}°C | ${minTempF}°F</p>
                 <p class="condition">${condition}</p>
               </div>
             `;

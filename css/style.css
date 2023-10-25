@@ -436,6 +436,16 @@ footer p {
   padding: 0;
 }
 
+.week-data {
+  display: flex;
+}
+
+.week-forecast {
+  border: solid;
+  padding: 0.5rem;
+  margin: 0.25rem;
+}
+
 /* responsive design */
 @media screen and (max-width: 1227px) {
   /* navbar styles */
