@@ -446,6 +446,15 @@ footer p {
   margin: 0.25rem;
 }
 
+.week-forecast p {
+  font-size: 1.2rem;
+}
+
+.week-h2 img {
+  width: 2.25rem;
+  height: 2.5rem;
+}
+
 /* responsive design */
 @media screen and (max-width: 1227px) {
   /* navbar styles */

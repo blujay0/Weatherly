@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
           // Create an image element for the location marker
           const locationMarker = document.createElement('img');
-          locationMarker.src = 'css/media/location-marker-white-cropped.svg'; // Set the source path
+          locationMarker.src = 'css/media/location-marker-white-cropped.svg'; // set the source path
           locationMarker.alt = 'location marker';
   
           // Update the location in the <h2> element and add the image
