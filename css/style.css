@@ -23,6 +23,10 @@ body {
   background: radial-gradient(rgba(30,25,124,1) 6%, rgba(23,23,134,1) 23%, rgba(18,20,113,1) 40%, rgba(14,12,75,1) 60%);
   background-repeat: no-repeat;
   margin: 0; /* removes space around navbar */
+  position: relative;
+  margin: 0;
+  padding-bottom: 4rem;
+  min-height: 100%;
 }
 
 /* large screen sizes */
@@ -160,7 +164,7 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  position: relative;
+  position: absolute;
 }
 
 footer ul {
