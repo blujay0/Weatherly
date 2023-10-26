@@ -164,7 +164,7 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  position: fixed;
+  position: relative;
 }
 
 footer ul {
