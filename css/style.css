@@ -177,8 +177,12 @@ footer ul li {
   margin: 0 1rem;
 }
 
+#footer-home ul li:hover {
+  opacity: 0.75;
+}
+
 footer ul li:hover {
-  opacity: 0.5;
+  opacity: 0.35;
 }
 
 footer img {
