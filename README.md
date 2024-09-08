@@ -35,7 +35,7 @@ Weatherly is a web application that integrates the Weather API. It provides up-t
 * DOM Manipulation
 * Error Handling
 * Responsive & Interactive Design
-* Accessbility
+* Web Accessbility
 * SEO Optimization
 * Netlify Deployment
 
