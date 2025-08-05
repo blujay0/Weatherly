@@ -1,4 +1,4 @@
-# 🌦️ Weatherly
+# 🌦️ [Weatherly](https://weatherly-jay-lim-dev.netlify.app/?)
 
 ![a page of the app showing an hourly forecast for the day](css/media/weatherly-page.png)
 
